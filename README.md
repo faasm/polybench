@@ -12,5 +12,7 @@ https://github.com/faasm/examples/tree/main/tasks/polybench.py) and the
 > To run with the WAMR runtime, we need to add an extra include header to
 > prevent some WASM memory optimisations. Other than that, the benchmark
 > requires no source code changes whatsoever.
+> NOTE: annoyingly, C source files seem to require a bit more work to get the
+> symbols linked in. Look into why that is the case.
 
 TODO: what benchmarks are not there and why?

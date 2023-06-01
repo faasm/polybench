@@ -72,6 +72,10 @@ static void kernel_jacobi_1d(int tsteps,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int n = N;
     int tsteps = TSTEPS;

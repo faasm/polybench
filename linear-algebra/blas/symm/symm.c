@@ -102,6 +102,10 @@ static void kernel_symm(int m,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int m = M;
     int n = N;

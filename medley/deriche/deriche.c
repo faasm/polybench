@@ -158,6 +158,10 @@ static void kernel_deriche(int w,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int w = W;
     int h = H;

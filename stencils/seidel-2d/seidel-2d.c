@@ -70,6 +70,10 @@ static void kernel_seidel_2d(int tsteps,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int n = N;
     int tsteps = TSTEPS;

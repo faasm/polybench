@@ -6,6 +6,11 @@ https://github.com/faasm/faasm).
 
 In particular, we cross-compile PolyBench/C to WebASsembly, and compare it to
 native execution. For the cross-compilation scripts, check the [examples](
-https://github.com/faasm/examples/tree/main/tasks/polybench.py).
+https://github.com/faasm/examples/tree/main/tasks/polybench.py) and the
+[`CMakeLists.txt`](./CMakeLists.txt) in this repository.
+
+> To run with the WAMR runtime, we need to add an extra include header to
+> prevent some WASM memory optimisations. Other than that, the benchmark
+> requires no source code changes whatsoever.
 
 TODO: what benchmarks are not there and why?

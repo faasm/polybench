@@ -29,6 +29,14 @@
 
 #include <stdlib.h>
 
+// Faasm: include to prevent WAMR from doing optimisations on the memory size.
+// Annoyingly, for C programs, we also need to explicitly add a call to a
+// symbol in libfaasm (which will include the memory.grow opcode). Be weary of
+// the potential performance implications (shouldn't be noticeable)
+#ifdef __faasm
+#include <faasm/faasm.h>
+#endif
+
 /* Array padding. By default, none is used. */
 #ifndef POLYBENCH_PADDING_FACTOR
 /* default: */

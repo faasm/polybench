@@ -128,6 +128,10 @@ static void kernel_ludcmp(int n,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int n = N;
 

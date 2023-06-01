@@ -95,6 +95,10 @@ static void kernel_lu(int n, DATA_TYPE POLYBENCH_2D(A, N, N, n, n))
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int n = N;
 

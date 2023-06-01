@@ -99,6 +99,10 @@ static void kernel_gemm(int ni,
 
 int main(int argc, char** argv)
 {
+#ifdef __faasm
+    __faasm_memory_layout_protection();
+#endif
+
     /* Retrieve problem size. */
     int ni = NI;
     int nj = NJ;

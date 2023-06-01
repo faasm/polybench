@@ -1,12 +1,7 @@
-include_directories(${CMAKE_CURRENT_LIST_DIR}/utilities)
+cmake_minimum_required (VERSION 3.11)
+project(polybench)
 
-if (FAASM_BUILD_TYPE STREQUAL "wasm")
-    # NOTE - at the time of writing this switch greatly improved performance.
-    # BUT - we can't compile everything with it as it'll break other stuff that
-    # tries to use the unimplemented functionality
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -munimplemented-simd128")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -munimplemented-simd128")
-endif()
+include_directories(${CMAKE_CURRENT_LIST_DIR}/utilities)
 
 # Define the polybench data type here
 # We want to use 32-bit floats to work well with wasm
@@ -60,5 +55,5 @@ polybench_func(jacobi-2d stencils)
 polybench_func(seidel-2d stencils)
 
 # Custom target to group all the poly functions
-add_custom_target(polybench_all_funcs DEPENDS ${ALL_POLY_FUNCS})
+add_custom_target(polybench_all DEPENDS ${ALL_POLY_FUNCS})
 
